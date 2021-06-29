@@ -1,17 +1,25 @@
-import React from "react";
 import styled from "styled-components";
-import logo from "./images/pokeball.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Counter } from "./features/counter/Counter";
+import Navbar from "./components/Navbar";
+import logo from "./images/pokeball.svg";
 
 function App() {
   return (
-    <AppContainer>
-      <Header>
-        <Logo src={logo} alt="logo" />
-        <h1>Pokesearch</h1>
-        <Counter />
-      </Header>
-    </AppContainer>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <AppContainer>
+            <Navbar />
+            <Header>
+              <Logo src={logo} alt="logo" />
+              <h1>Pokesearch</h1>
+              <Counter />
+            </Header>
+          </AppContainer>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
